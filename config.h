@@ -71,12 +71,12 @@ static const char *brdowncmd[] = { "doas", "xbacklight", "-dec", "10", NULL };
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "/usr/local/bin/j4-dmenu-desktop --dmenu=\"dmenu -m 0 -fn CascadiaCode:size=14\"", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("rofi -modi drun,run -show drun") },
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-dmenu-desktop --dmenu=\"dmenu -m 0 -fn CascadiaCode:size=14\"") },
     { 0,                            XK_Print,  spawn,          SHCMD("maim -s /home/ouxiez/Pictures/screenshot_${RANDOM}.png") },
     { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("doas poweroff") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
